@@ -32,7 +32,7 @@ st.subheader("Monthly Sales Trends")
 for sku in selected_skus:
     sku_data = monthly_sales[monthly_sales["SKU"] == sku]
     fig, ax = plt.subplots()
-    ax.bar(sku_data["YearMonth"].astype(str), sku_data["Sales"], marker='o')
+    ax.bar(sku_data["YearMonth"], sku_data["Sales"], color='skyblue')
     ax.set_ylim(bottom=0)
     ax.set_title(f"Monthly Sales for {sku}")
     ax.set_xlabel("Month")
