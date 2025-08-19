@@ -33,6 +33,7 @@ for sku in selected_skus:
     sku_data = monthly_sales[monthly_sales["SKU"] == sku]
     fig, ax = plt.subplots()
     ax.plot(sku_data["YearMonth"].astype(str), sku_data["Sales"], marker='o')
+    ax.set_ylim(bottom=0)
     ax.set_title(f"Monthly Sales for {sku}")
     ax.set_xlabel("Month")
     ax.set_ylabel("Sales")
