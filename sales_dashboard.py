@@ -31,14 +31,16 @@ selected_skus = st.multiselect("Select SKUs to view", options=monthly_sales["SKU
 st.subheader("Monthly Sales Trends")
 for sku in selected_skus:
     sku_data = monthly_sales[monthly_sales["SKU"] == sku]
-    fig, ax = plt.subplots()
-    ax.bar(sku_data["YearMonth"], sku_data["Sales"], color='skyblue')
-    ax.set_ylim(bottom=0)
-    ax.set_title(f"Monthly Sales for {sku}")
-    ax.set_xlabel("Month")
-    ax.set_ylabel("Sales")
-    plt.xticks(rotation=45)
-    st.pyplot(fig)
+   
+fig, ax = plt.subplots()
+ax.bar(sku_data["YearMonth"], sku_data["Sales"], color='skyblue')
+ax.set_title(f"Monthly Sales for {sku}")
+ax.set_xlabel("Month")
+ax.set_ylabel("Sales")
+ax.set_ylim(bottom=0)
+plt.xticks(rotation=45)
+st.pyplot(fig)
+
 
 # Flag SKUs with July sales > 130% of Apr-Jun average
 st.subheader("Flagged SKUs (July Sales > 130% of Apr–Jun Avg)")
