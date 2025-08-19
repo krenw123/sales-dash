@@ -30,7 +30,7 @@ selected_skus = st.multiselect("Select SKUs to view", options=monthly_sales["SKU
 # Plot monthly sales trends
 st.subheader("Monthly Sales Trends")
 
-for product in selected_products:
+for sku in selected_skus:
     sku_data = monthly_sales[monthly_sales["Product"] == product]
     fig, ax = plt.subplots()
     ax.bar(sku_data["YearMonth"].astype(str), sku_data["Sales"], color='skyblue')
